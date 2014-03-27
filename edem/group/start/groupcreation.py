@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
 from AccessControl.PermissionRole import rolesForPermissionOn
 from gs.group.base.interfaces import IGSGroupMarker
 
 
 def groupAddedHandler(groupFolder, event):
     assert IGSGroupMarker.providedBy(groupFolder), \
-       "groupFolder did not implement IGSGroupFolder!"
+        "groupFolder did not implement IGSGroupFolder!"
 
     site_root = groupFolder.site_root()
     if site_root.getId() == 'edem':
