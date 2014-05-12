@@ -20,7 +20,7 @@ def groupAddedHandler(groupFolder, event):
             "main has no charter folder"
 
         charter = getattr(site_root.Content.main, "charter")
-        groupFolder.manage_clone(charter, "charter")
+        groupFolder.manage_clone(charter, "charter".encode('ascii'))
 
     # make sure GroupAdmins can manage the properties of the group
     roles = []
