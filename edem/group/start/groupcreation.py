@@ -2,6 +2,7 @@
 from __future__ import absolute_import, unicode_literals
 from AccessControl.PermissionRole import rolesForPermissionOn
 from gs.group.base.interfaces import IGSGroupMarker
+from gs.core.utils import to_ascii
 
 
 def groupAddedHandler(groupFolder, event):
@@ -20,7 +21,7 @@ def groupAddedHandler(groupFolder, event):
             "main has no charter folder"
 
         charter = getattr(site_root.Content.main, "charter")
-        groupFolder.manage_clone(charter, "charter".encode('ascii'))
+        groupFolder.manage_clone(charter, to_ascii("charter"))
 
     # make sure GroupAdmins can manage the properties of the group
     roles = []
